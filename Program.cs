@@ -58,7 +58,26 @@ namespace SleepData
             }
             else if (resp == "2")
             {
-                // TODO: parse data file
+                string file = "data.txt";
+
+                    if (File.Exists(file))
+                    {
+                        StreamReader sr = new StreamReader(file);
+                        while (!sr.EndOfStream)
+                        {
+
+                            string line = sr.ReadLine();
+                            // convert string to array
+                            string[] arr = line.Split('|');
+                            // display array data
+                            Console.WriteLine($"{arr[0]} {arr[1]} {arr[2]} {arr[3]} {arr[4]} {arr[5]} {arr[6]}");
+                        }
+                        sr.Close();
+                    }
+                    else
+                    {
+                        Console.WriteLine("File does not exist");
+                    }
 
             }
         }
