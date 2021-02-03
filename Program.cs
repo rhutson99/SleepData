@@ -75,10 +75,23 @@ namespace SleepData
                             string[] arr = line.Split(delimiters);
                             DateTime d = Convert.ToDateTime(arr[0]);
 
+                            //calculate total and average
+                            int n1 = Convert.ToInt32(arr[1]);
+                            int n2 = Convert.ToInt32(arr[2]);
+                            int n3 = Convert.ToInt32(arr[3]);
+                            int n4 = Convert.ToInt32(arr[4]);                            
+                            int n5 = Convert.ToInt32(arr[5]);
+                            int n6 = Convert.ToInt32(arr[6]);
+                            int n7 = Convert.ToInt32(arr[7]);
+
+                            double total = n1 + n2 + n3 + n4 + n5 + n6 + n7;
+                            double avg = total/7;
+
+
                             //display data
 
-                            Console.WriteLine($"Week of {d:MMM}, {d:dd}, {d:yyyy} \n Mo Tu We Th Fr Sa Su \n -- -- -- -- -- -- --");
-                            Console.WriteLine($" {arr[1], -3}{arr[2], -3}{arr[3], -3}{arr[4], -3}{arr[5], -3}{arr[6], -3}{arr[7], -3}");
+                            Console.WriteLine($"Week of {d:MMM}, {d:dd}, {d:yyyy} \n Mo Tu We Th Fr Sa Su Tot Avg \n -- -- -- -- -- -- -- --- ---");
+                            Console.WriteLine($" {arr[1], -3}{arr[2], -3}{arr[3], -3}{arr[4], -3}{arr[5], -3}{arr[6], -3}{arr[7], -4}{total, -3}{avg:n1}");
                         } 
                         sr.Close();
                     }
