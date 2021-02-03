@@ -66,15 +66,20 @@ namespace SleepData
                         while (!sr.EndOfStream)
                         {
 
+                            //read file
+
+
+
                             string line = sr.ReadLine();
-                            // convert string to array
-                            string[] date = line.Split(',');
-                            DateTime d = Convert.ToDateTime(date[0]);
-                            string[] arr = line.Split('|');
-                            // display array data
+                            char[] delimiters = {',', '|'};
+                            string[] arr = line.Split(delimiters);
+                            DateTime d = Convert.ToDateTime(arr[0]);
+
+                            //display data
+
                             Console.WriteLine($"Week of {d:MMM}, {d:dd}, {d:yyyy} \n Mo Tu We Th Fr Sa Su \n -- -- -- -- -- -- --");
-                            Console.WriteLine($"{arr[0]} {arr[1]} {arr[2]} {arr[3]} {arr[4]} {arr[5]} {arr[6]}");
-                        }
+                            Console.WriteLine($" {arr[1], -3}{arr[2], -3}{arr[3], -3}{arr[4], -3}{arr[5], -3}{arr[6], -3}{arr[7], -3}");
+                        } 
                         sr.Close();
                     }
                     else
