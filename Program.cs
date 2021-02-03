@@ -68,8 +68,11 @@ namespace SleepData
 
                             string line = sr.ReadLine();
                             // convert string to array
+                            string[] date = line.Split(',');
+                            DateTime d = Convert.ToDateTime(date[0]);
                             string[] arr = line.Split('|');
                             // display array data
+                            Console.WriteLine($"Week of {d:MMM}, {d:dd}, {d:yyyy} \n Mo Tu We Th Fr Sa Su \n -- -- -- -- -- -- --");
                             Console.WriteLine($"{arr[0]} {arr[1]} {arr[2]} {arr[3]} {arr[4]} {arr[5]} {arr[6]}");
                         }
                         sr.Close();
